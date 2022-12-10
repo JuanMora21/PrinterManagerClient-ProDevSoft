@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <h1 *ngIf="createMode">Create Reservation</h1>
+        <h1 *ngIf="!createMode">Update Reservation</h1>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Name</label>
+        </div>
+        <div class="col-9">
+            <input type="text" class="form-control" [(ngModel)]="theReservation.name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>User</label>
+        </div>
+        <div class="col-9">
+            <select class="form-control" [(ngModel)]="selectedUserID">
+                <option *ngFor="let user of Users" [value]="user.id" selected>{{user.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Printer</label>
+        </div>
+        <div class="col-9">
+            <select class="form-control" [(ngModel)]="selectedPrinterID">
+                <option *ngFor="let Printer of Printers" [value]="Printer.id" selected>{{Printer.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Start Date</label>
+        </div>
+        <div class="col-9">
+            <input type="date" class="form-control" [(ngModel)]="theReservation.start_date">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>End Date</label>
+        </div>
+        <div class="col-9">
+            <input type="date" class="form-control" [(ngModel)]="theReservation.end_date">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Start time</label>
+        </div>
+        <div class="col-9">
+            <input type="time" class="form-control" [(ngModel)]="theReservation.start_time">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>End time</label>
+        </div>
+        <div class="col-9">
+            <input type="time" class="form-control" [(ngModel)]="theReservation.end_time">
+        </div>
+    </div>
+    <div class="row">
+        <button *ngIf="createMode"  class="btn btn-primary btn-block" (click)="create()">
+            Create
+        </button>
+        <button *ngIf="!createMode"  class="btn btn-primary btn-block" (click)="update()">
+            Update
+        </button>
+    </div>
+</div>

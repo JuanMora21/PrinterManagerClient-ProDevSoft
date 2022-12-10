@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <h1 *ngIf="createMode">Create Printer</h1>
+        <h1 *ngIf="!createMode">Update Printer</h1>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Name</label>
+        </div>
+        <div class="col-9">
+            <input type="text" class="form-control" [(ngModel)]="thePrinter.name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Model</label>
+        </div>
+        <div class="col-9">
+            <input type="text" class="form-control" [(ngModel)]="thePrinter.model">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Type</label>
+        </div>
+        <div class="col-9">
+            <select
+                class="form-control"
+                [(ngModel)]="thePrinter.type">
+                <option value="Resin">Resin</option>
+                <option value="Filament">Filament</option>
+            </select>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Bed Height</label>
+        </div>
+        <div class="col-9">
+            <input type="number" min="1" class="form-control" [(ngModel)]="thePrinter.beed_height">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Bed Width</label>
+        </div>
+        <div class="col-9">
+            <input type="number" min="1" class="form-control" [(ngModel)]="thePrinter.beed_width">
+        </div>
+    </div>
+    <div class="row">
+        <button *ngIf="createMode"  class="btn btn-primary btn-block" (click)="create()">
+            Create
+        </button>
+        <button *ngIf="!createMode"  class="btn btn-primary btn-block" (click)="update()">
+            Update
+        </button>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Tasks</h1>
+    <button class="btn btn-primary" (click)="createTask()">Create</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let columnName of columns" scope="col">
+                    {{columnName}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Task of theTasks">
+                <!--<td scope="col">{{Task.id}}</td>-->
+                <td scope="col">{{Task.name}}</td>
+                <td scope="col">{{Task.duration_hours}}</td>
+                <td scope="col">{{Task.priority}}</td>
+                <td scope="col">{{Task.archive_id}}</td>
+                <td scope="col">
+                    <button class="btn btn-primary" (click)="updateTask(Task.id)">Update</button>
+                    <button class="btn btn-danger" (click)="deleteTask(Task.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

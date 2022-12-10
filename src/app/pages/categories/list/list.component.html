@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Categories</h1>
+    <button class="btn btn-primary" (click)="createCategory()">Create</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let columnName of columns" scope="col">
+                    {{columnName}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Category of theCategorys">
+                <!--<td scope="col">{{Category.id}}</td>-->
+                <td scope="col">{{Category.name}}</td>
+                <td scope="col">{{Category.library_id}}</td>
+                <td scope="col">
+                    <button class="btn btn-primary" (click)="updateCategory(Category.id)">Update</button>
+                    <button class="btn btn-danger" (click)="deleteCategory(Category.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

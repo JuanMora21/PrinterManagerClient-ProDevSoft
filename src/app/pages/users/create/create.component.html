@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <h1 *ngIf="createMode">Create User</h1>
+        <h1 *ngIf="!createMode">Update User</h1>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Name</label>
+        </div>
+        <div class="col-9">
+            <input type="text" class="form-control" [(ngModel)]="theUser.name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Email</label>
+        </div>
+        <div class="col-9">
+            <input type="text" class="form-control" [(ngModel)]="theUser.email">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Role</label>
+        </div>
+        <div class="col-9">
+            <select class="form-control" [(ngModel)]="selectedRoleID">
+                <option *ngFor="let role of roles" [value]="role.id" selected>{{role.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div *ngIf="createMode" class="row">
+        <div class="col-3">
+            <label>Password</label>
+        </div>
+        <div class="col-9">
+            <input type="password" class="form-control" [(ngModel)]="theUser.password">
+        </div>
+    </div>
+    <div class="row">
+        <button *ngIf="createMode"  class="btn btn-primary btn-block" (click)="create()">
+            Create
+        </button>
+        <button *ngIf="!createMode"  class="btn btn-primary btn-block" (click)="update()">
+            Update
+        </button>
+    </div>
+</div>

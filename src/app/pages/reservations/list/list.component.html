@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Reservations</h1>
+    <button class="btn btn-primary" (click)="createReservation()">Create</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let columnName of columns" scope="col">
+                    {{columnName}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Reservation of theReservations">
+                <!--<td scope="col">{{Reservation.id}}</td>-->
+                <td scope="col">{{Reservation.name}}</td>
+                <td scope="col">{{Reservation.user_id}}</td>
+                <td scope="col">{{Reservation.printer_id}}</td>
+                <td scope="col">{{Reservation.start_date}}</td>
+                <td scope="col">{{Reservation.end_date}}</td>
+                <td scope="col">{{Reservation.start_time}}</td>
+                <td scope="col">{{Reservation.end_time}}</td>
+                <td scope="col">
+                    <button class="btn btn-primary" (click)="updateReservation(Reservation.id)">Update</button>
+                    <button class="btn btn-danger" (click)="deleteReservation(Reservation.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

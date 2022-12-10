@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <h1 *ngIf="createMode">Create Archive</h1>
+        <h1 *ngIf="!createMode">Update Archive</h1>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Name</label>
+        </div>
+        <div class="col-9">
+            <input type="text" class="form-control" [(ngModel)]="theArchive.name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Format</label>
+        </div>
+        <div class="col-9">
+            <select
+                class="form-control"
+                [(ngModel)]="theArchive.format">
+                <option value=".obj">OBJ</option>
+                <option value=".fbx">FBX</option>
+                <option value=".stl">STL</option>
+                <option value=".skp">SKP</option>
+                <option value=".gltf">GLTF</option>
+                <option value=".glb">GLB</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Visibility</label>
+        </div>
+        <div class="col-9">
+            <select
+                class="form-control"
+                [(ngModel)]="theArchive.visibility">
+                <option value="Public">Public</option>
+                <option value="Private">Private</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label>Category ID</label>
+        </div>
+        <div class="col-9">
+            <select class="form-control" [(ngModel)]="selectedCategoryID">
+                <option *ngFor="let Category of Categorys" [value]="Category.id" selected>{{Category.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <button *ngIf="createMode"  class="btn btn-primary btn-block" (click)="create()">
+            Create
+        </button>
+        <button *ngIf="!createMode"  class="btn btn-primary btn-block" (click)="update()">
+            Update
+        </button>
+    </div>
+</div>

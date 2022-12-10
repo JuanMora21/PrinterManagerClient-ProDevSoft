@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Profiles</h1>
+    <button class="btn btn-primary" (click)="createProfile()">Create</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let columnName of columns" scope="col">
+                    {{columnName}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Profile of theProfiles">
+                <!--<td scope="col">{{Profile.id}}</td>-->
+                <td scope="col">{{Profile.user_id}}</td>
+                <td scope="col">{{Profile.phone}}</td>
+                <td scope="col">{{Profile.facebook_url}}</td>
+                <td scope="col">{{Profile.instagram_url}}</td>
+                <td scope="col">
+                    <button class="btn btn-primary" (click)="updateProfile(Profile.id)">Update</button>
+                    <button class="btn btn-danger" (click)="deleteProfile(Profile.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Libraries</h1>
+    <button class="btn btn-primary" (click)="createLibrary()">Create</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let columnName of columns" scope="col">
+                    {{columnName}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Library of theLibrarys">
+                <td scope="col">{{Library.id}}</td>
+                <td scope="col">{{Library.User?.name}}</td>
+                <td scope="col">
+                    <button class="btn btn-primary" (click)="updateLibrary(Library.id)">Update</button>
+                    <button class="btn btn-danger" (click)="deleteLibrary(Library.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

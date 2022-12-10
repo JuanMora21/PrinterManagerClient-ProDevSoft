@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Printers</h1>
+    <button class="btn btn-primary" (click)="createPrinter()">Create</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let columnName of columns" scope="col">
+                    {{columnName}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Printer of thePrinters">
+                <!--<td scope="col">{{Printer.id}}</td>-->
+                <td scope="col">{{Printer.name}}</td>
+                <td scope="col">{{Printer.model}}</td>
+                <td scope="col">{{Printer.type}}</td>
+                <td scope="col">{{Printer.beed_height}} mm</td>
+                <td scope="col">{{Printer.beed_width}} mm</td>
+                <td scope="col">
+                    <button class="btn btn-primary" (click)="updatePrinter(Printer.id)">Update</button>
+                    <button class="btn btn-danger" (click)="deletePrinter(Printer.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

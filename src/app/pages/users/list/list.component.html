@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Users</h1>
+    <button class="btn btn-primary" (click)="createUser()">Create</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let columnName of columns" scope="col">
+                    {{columnName}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of theUsers">
+                <!--<td scope="col">{{user.id}}</td>-->
+                <td scope="col">{{user.name}}</td>
+                <td scope="col">{{user.email}}</td>
+                <td scope="col">{{user.role?.name}}</td>
+                <td scope="col">
+                    <button class="btn btn-primary" (click)="updateUser(user.id)">Update</button>
+                    <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
